@@ -1,6 +1,6 @@
 import express from 'express';
 import { readFileSync } from 'fs';
-import { Blueprint, BlueprintSchema } from '../..';
+import { Blueprint, BlueprintSchema } from 'blueprint-pdf';
 
 const app = express();
 

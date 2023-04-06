@@ -127,8 +127,8 @@ class Blueprint<T extends Record<string, any>> {
     return pdf;
   }
 
-  public async generate(): Promise<string> {
-    return new Promise<string>((resolve, reject) => {
+  public async generate(): Promise<ArrayBuffer> {
+    return new Promise<ArrayBuffer>((resolve, reject) => {
       const { config, schema, data } = this._config;
       const { loops, options, ...compiled } = schema(data);
 
@@ -165,7 +165,7 @@ class Blueprint<T extends Record<string, any>> {
           }
         }
 
-        resolve(pdf.output());
+        resolve(pdf.output('arraybuffer'));
       } catch (error) {
         reject(error);
       }

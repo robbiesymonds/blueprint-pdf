@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "blueprint-pdf",
   "description": "Flexible PDF templating utility for client-side or server-side generation.",
   "repository": "https://github.com/robbiesymonds/Blueprint.git",

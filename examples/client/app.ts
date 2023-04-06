@@ -1,4 +1,4 @@
-import { Blueprint, BlueprintSchema } from '../..';
+import { Blueprint, BlueprintSchema } from 'blueprint-pdf';
 import { FONT_TTF, TEST_IMAGE } from './constants';
 
 const download = async () => {
