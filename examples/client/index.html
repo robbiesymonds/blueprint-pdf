@@ -1,0 +1,55 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blueprint Client Demo</title>
+    <style>
+      html,
+      body {
+        text-align: center;
+        width: 100vw;
+        height: 100vh;
+        color-scheme: dark;
+        margin: 0 auto;
+        font-family: system-ui, -apple-system, sans-serif;
+      }
+
+      div {
+        display: inline-block;
+        margin: 64px auto;
+        width: fit-content;
+        height: fit-content;
+      }
+
+      h1 {
+        font-size: clamp(2.5rem, 4vw, 5rem);
+        letter-spacing: -0.05em;
+      }
+
+      button {
+        background-color: #ffffff;
+        color: #000000;
+        padding: 16px 64px;
+        border-radius: 32px;
+        font-size: 1rem;
+        font-weight: 500;
+        outline: none;
+        border: none;
+        letter-spacing: -0.03em;
+        cursor: pointer;
+      }
+
+      button:hover {
+        opacity: 0.9;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Blueprint Client Demo</h1>
+      <button id="download">Download PDF</button>
+    </div>
+  </body>
+  <script type="module" src="app.ts"></script>
+</html>

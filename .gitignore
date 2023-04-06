@@ -1,0 +1,8 @@
+# files
+.DS_Store
+*.tgz
+
+# directories
+.parcel-cache/
+node_modules/
+dist/

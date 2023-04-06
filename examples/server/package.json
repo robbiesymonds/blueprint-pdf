@@ -1,0 +1,23 @@
+{
+  "name": "@blueprint-pdf/server-example",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "nodemon app.ts"
+  },
+  "dependencies": {
+    "blueprint-pdf": "../..",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "2.8.3",
+    "@types/express": "^4.17.17",
+    "@types/node": "^18.15.11",
+    "nodemon": "^2.0.22",
+    "parcel": "^2.8.3",
+    "process": "^0.11.10",
+    "ts-node": "^10.9.1"
+  }
+}

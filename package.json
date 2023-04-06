@@ -1,0 +1,50 @@
+{
+  "version": "1.0.0",
+  "name": "blueprint-pdf",
+  "description": "Flexible PDF templating utility for client-side or server-side generation.",
+  "repository": "https://github.com/robbiesymonds/Blueprint.git",
+  "author": "Robbie Symonds",
+  "license": "MIT",
+  "source": "core/index.ts",
+  "main": "dist/main.js",
+  "module": "dist/module.js",
+  "types": "dist/types.d.ts",
+  "files": [
+    "dist/*"
+  ],
+  "targets": {
+    "main": {
+      "context": "browser",
+      "isLibrary": true,
+      "sourceMap": false
+    },
+    "module": {
+      "context": "node",
+      "isLibrary": true,
+      "sourceMap": false
+    },
+    "types": {
+      "isLibrary": true,
+      "sourceMap": false
+    }
+  },
+  "scripts": {
+    "clean": "rm -rf dist/",
+    "watch": "parcel watch",
+    "build": "yarn clean && parcel build"
+  },
+  "dependencies": {
+    "jspdf": "^2.5.1"
+  },
+  "devDependencies": {
+    "@parcel/packager-ts": "2.8.3",
+    "@parcel/transformer-typescript-types": "2.8.3",
+    "typescript": "^5.0.2",
+    "parcel": "^2.8.3"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all",
+    "printWidth": 120
+  }
+}
