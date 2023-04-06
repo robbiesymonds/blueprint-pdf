@@ -72,7 +72,9 @@ const url = URL.createObjectURL(blob);
 window.open(url);
 ```
 
-Need more help? Check out the `examples` directory!
+The `generate()` function can also take an optional argument to specify alternative output formats. The default is `string` but you can also use `arraybuffer` or `blob` to get different data formats.
+
+*Need more help? Check out the `examples` directory!*
 
 ## 📖&nbsp; Templates
 

@@ -798,10 +798,10 @@ binary-extensions@^2.0.0:
   resolved "https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-2.2.0.tgz#75f502eeaf9ffde42fc98829645be4ea76bd9e2d"
   integrity sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==
 
-blueprint-pdf@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/blueprint-pdf/-/blueprint-pdf-1.0.1.tgz#b69a472fd0db6f683326e01973fe164158c17da3"
-  integrity sha512-eYtP95cYgCBq0XMPQqFbVTKvPLdPfXq16RJAjgaWO06pNd84SUOSl1585ixIwf59YSKwK9Dp0cPj+1H8S7sjPQ==
+blueprint-pdf@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/blueprint-pdf/-/blueprint-pdf-1.0.3.tgz#ad571579f61c011f7ca4c9e387edb0c2334beae7"
+  integrity sha512-zEVkZAKmWgizpspI8iI6KrcaUZ6zHxp9Pxjx7b+w5qC7yBKnwdehcCZh2i6xekKPEnHcTG5jVYj7FzFXbOPuQQ==
   dependencies:
     jspdf "^2.5.1"
 

@@ -12,6 +12,13 @@ type BlueprintConstructor<T extends Record<string, any>> = {
   config?: BlueprintConfig;
 };
 
+type GenerateType = 'string' | 'arraybuffer' | 'blob';
+type GenerateTypeReturn<T extends GenerateType> = T extends 'arraybuffer'
+  ? ArrayBuffer
+  : T extends 'blob'
+  ? Blob
+  : string;
+
 const PAGE_FORMATS = {
   A2: [1190.55, 1683.78],
   A3: [841.89, 1190.55],
@@ -127,8 +134,8 @@ class Blueprint<T extends Record<string, any>> {
     return pdf;
   }
 
-  public async generate(): Promise<ArrayBuffer> {
-    return new Promise<ArrayBuffer>((resolve, reject) => {
+  public async generate<T extends GenerateType>(type?: T): Promise<GenerateTypeReturn<T>> {
+    return new Promise<GenerateTypeReturn<T>>((resolve, reject) => {
       const { config, schema, data } = this._config;
       const { loops, options, ...compiled } = schema(data);
 
@@ -165,7 +172,17 @@ class Blueprint<T extends Record<string, any>> {
           }
         }
 
-        resolve(pdf.output('arraybuffer'));
+        switch (type) {
+          case 'arraybuffer':
+            resolve(pdf.output('arraybuffer') as GenerateTypeReturn<T>);
+            break;
+          case 'blob':
+            resolve(pdf.output('blob') as GenerateTypeReturn<T>);
+            break;
+          default:
+            resolve(pdf.output() as GenerateTypeReturn<T>);
+            break;
+        }
       } catch (error) {
         reject(error);
       }

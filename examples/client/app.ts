@@ -90,7 +90,7 @@ const download = async () => {
   });
 
   // Render the PDF file.
-  const buffer = await blueprint.generate();
+  const buffer = await blueprint.generate('arraybuffer');
   const url = window.URL.createObjectURL(new Blob([buffer], { type: 'application/pdf' }));
 
   // Open the PDF file.

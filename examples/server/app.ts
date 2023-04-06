@@ -97,7 +97,7 @@ app.get('/', async (_, res) => {
   });
 
   // Render the PDF file.
-  const doc = await blueprint.generate();
+  const doc = await blueprint.generate('string');
   const buffer = Buffer.from(doc, 'ascii');
   return res.status(200).type('application/pdf; charset=ascii').send(buffer);
 });
