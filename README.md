@@ -4,9 +4,10 @@ Flexible PDF templating utility for client-side or server-side generation.
 
 ⚡️ *Ultra-lightweight, lightning fast, and no headless browser required.*
 
+💾 *Generating PDFs from the command line? Check out [@blueprint-pdf/cli](https://www.npmjs.com/package/@blueprint-pdf/cli)* now!
+
 📚 *Looking for the Blueprint Editor? [Coming Soon](#)!*
 
-💾 *Generating PDFs from the command line? [Coming Soon](#)!*
 
 ## 📦&nbsp; Installation
 
