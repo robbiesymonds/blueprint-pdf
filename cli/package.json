@@ -7,6 +7,7 @@
   "license": "MIT",
   "source": "src/index.ts",
   "main": "dist/main.js",
+  "types": "dist/main.d.ts",
   "files": [
     "dist/*"
   ],
@@ -14,6 +15,9 @@
     "main": {
       "context": "node",
       "isLibrary": false,
+      "sourceMap": false
+    },
+    "types": {
       "sourceMap": false
     }
   },
