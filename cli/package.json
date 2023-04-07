@@ -1,37 +1,40 @@
 {
-  "version": "1.0.0",
+  "type": "module",
+  "version": "1.0.1",
   "name": "@blueprint-pdf/cli",
   "description": "Terminal-based utility for the blueprint-pdf package.",
   "repository": "https://github.com/robbiesymonds/Blueprint.git",
   "author": "Robbie Symonds",
   "license": "MIT",
   "source": "src/index.ts",
-  "main": "dist/main.js",
-  "types": "dist/main.d.ts",
+  "main": "dist/blueprint.js",
   "files": [
     "dist/*"
   ],
   "targets": {
     "main": {
       "context": "node",
-      "isLibrary": false,
-      "sourceMap": false
-    },
-    "types": {
+      "isLibrary": true,
       "sourceMap": false
     }
   },
   "bin": {
-    "blueprint": "./dist/main.js"
+    "blueprint": "./dist/blueprint.js"
   },
   "scripts": {
     "clean": "rm -rf dist/",
     "watch": "parcel watch",
     "build": "yarn clean && parcel build"
   },
+  "dependencies": {
+    "chalk": "^5.2.0",
+    "commander": "^10.0.0",
+    "ora": "^6.3.0"
+  },
   "devDependencies": {
     "@parcel/packager-ts": "2.8.3",
     "@parcel/transformer-typescript-types": "2.8.3",
+    "@types/node": "^18.15.11",
     "parcel": "^2.8.3",
     "typescript": "^5.0.2"
   },
@@ -40,8 +43,7 @@
     "trailingComma": "all",
     "printWidth": 120
   },
-  "dependencies": {
-    "chalk": "^5.2.0",
-    "commander": "^10.0.0"
+  "@parcel/transformer-js": {
+    "inlineFS": false
   }
 }

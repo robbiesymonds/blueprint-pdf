@@ -1,0 +1,10 @@
+{
+  "user": {
+    "name": "John Static"
+  },
+  "rows": [
+    { "number": 1, "value": "One" },
+    { "number": 2, "value": "Two" },
+    { "number": 3, "value": "Three" }
+  ]
+}
