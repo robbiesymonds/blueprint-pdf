@@ -8,7 +8,7 @@ type BlueprintConfig = {
 
 type BlueprintConstructor<T extends Record<string, any>> = {
   schema: BlueprintSchema<T>;
-  data: T;
+  data?: T;
   config?: BlueprintConfig;
 };
 
