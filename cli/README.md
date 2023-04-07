@@ -12,6 +12,8 @@ Blueprint CLI is available as an [npm package](https://www.npmjs.com/package/@bl
 
 ```sh
 npm i -g @blueprint-pdf/cli
+# or
+yarn global add @blueprint-pdf/cli
 ```
 
 ## 🚀&nbsp; Usage

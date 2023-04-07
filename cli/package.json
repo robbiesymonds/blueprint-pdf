@@ -1,6 +1,6 @@
 {
   "type": "module",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "name": "@blueprint-pdf/cli",
   "description": "Terminal-based utility for the blueprint-pdf package.",
   "repository": "https://github.com/robbiesymonds/Blueprint.git",
@@ -29,6 +29,7 @@
   "dependencies": {
     "chalk": "^5.2.0",
     "commander": "^10.0.0",
+    "jspdf": "^2.5.1",
     "ora": "^6.3.0"
   },
   "devDependencies": {
