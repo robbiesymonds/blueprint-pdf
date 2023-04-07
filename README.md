@@ -74,6 +74,8 @@ window.open(url);
 
 The `generate()` function can also take an optional argument to specify alternative output formats. The default is `string` but you can also use `arraybuffer` or `blob` to get different data formats.
 
+Multi-page support is automatic, and pages are generated based on the value of the `y` attribute. There is no need to manually add page breaks, or define your schematic in a specific order. Just treat your Blueprint as an infinitely long canvas.
+
 *Need more help? Check out the `examples` directory!*
 
 ## 📖&nbsp; Templates

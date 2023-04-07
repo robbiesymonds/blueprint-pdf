@@ -30,6 +30,7 @@ const PAGE_FORMATS = {
 
 class Blueprint<T extends Record<string, any>> {
   private _config: BlueprintConstructor<T> & { config: BlueprintConfig };
+  private _pages: number = 1;
 
   constructor(config: BlueprintConstructor<T>) {
     this._config = {
@@ -76,11 +77,25 @@ class Blueprint<T extends Record<string, any>> {
     const backgrounds = images?.filter((i) => i?.type === 'background');
     const foregrounds = images?.filter((i) => i?.type !== 'background');
 
+    // Move the "cursor" to the correct page based on y and existing pages.
+    const page = (y: number, h: number = 0): number => {
+      const { height } = this.dim();
+      const page = Math.floor((y + h) / height) + 1;
+      if (page > this._pages) {
+        pdf.addPage();
+        this._pages++;
+      }
+
+      pdf.setPage(page);
+      return y - (page - 1) * height;
+    };
+
     const drawImage = (image: BlueprintImageSchema | null | undefined) => {
       if (!image) return;
       const { w, h } = this.size(image.width, image.height);
       const { x, y } = this.pos(image.x, image.y, image.rotation ? undefined : w);
-      pdf.addImage(image.src, 'png', x, y, w, h, undefined, 'NONE', image.rotation);
+      const py = page(y, h);
+      pdf.addImage(image.src, 'png', x, py, w, h, undefined, 'NONE', image.rotation);
     };
 
     // Background Images.
@@ -101,12 +116,14 @@ class Blueprint<T extends Record<string, any>> {
             const { w, h } = this.size(width, height);
             const { x, y } = this.pos(shape.x, shape.y, w);
             const r = borderRadius ?? 0;
-            pdf.roundedRect(x, y, w, h, r, r, 'FD');
+            const py = page(y, h);
+            pdf.roundedRect(x, py, w, h, r, r, 'FD');
             break;
           }
           case 'circle': {
             const { x, y } = this.pos(shape.x, shape.y);
-            pdf.circle(x, y, shape.radius, 'FD');
+            const py = page(y, shape.radius);
+            pdf.circle(x, py, shape.radius, 'FD');
             break;
           }
         }
@@ -122,7 +139,8 @@ class Blueprint<T extends Record<string, any>> {
         pdf.setFontSize(fontSize ?? 12);
         pdf.setFont(fontFamily ?? 'Helvetica', fontStyle ?? 'normal', fontWeight);
         pdf.setTextColor(color ?? '#000000');
-        pdf.text(value, x, y, {
+        const py = page(y);
+        pdf.text(value, x, py, {
           align: textAlign ?? 'left',
         });
       }
@@ -138,6 +156,7 @@ class Blueprint<T extends Record<string, any>> {
     return new Promise<GenerateTypeReturn<T>>((resolve, reject) => {
       const { config, schema, data } = this._config;
       const { loops, options, ...compiled } = schema(data);
+      this._pages = 1;
 
       try {
         const pdf = new jsPDF({
