@@ -22,7 +22,7 @@ const download = async () => {
         y: 160,
         fontSize: 24,
         color: '#333333',
-        text: `Hello ${data.user.name}!`,
+        text: `Hello ${data?.user.name}!`,
         fontFamily: 'Cal Sans',
         textAlign: 'center',
       },
@@ -38,7 +38,7 @@ const download = async () => {
     ],
     loops: [
       {
-        data: data.rows,
+        data: data?.rows,
         template: (row, i) => ({
           text: [
             {

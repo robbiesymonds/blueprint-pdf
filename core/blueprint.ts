@@ -6,9 +6,9 @@ type BlueprintConfig = {
   orientation: 'portrait' | 'landscape';
 };
 
-type BlueprintConstructor<T extends Record<string, any>> = {
+type BlueprintConstructor<T extends Record<string, any> | undefined> = {
   schema: BlueprintSchema<T>;
-  data?: T;
+  data: T;
   config?: BlueprintConfig;
 };
 
@@ -82,7 +82,9 @@ class Blueprint<T extends Record<string, any>> {
       const { height } = this.dim();
       const page = Math.floor((y + h) / height) + 1;
       if (page > this._pages) {
-        pdf.addPage();
+        // Determine how many pages to add.
+        const pages = page - this._pages;
+        for (let i = 0; i < pages; i++) pdf.addPage();
         this._pages++;
       }
 

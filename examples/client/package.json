@@ -13,6 +13,6 @@
     "process": "^0.11.10"
   },
   "dependencies": {
-    "blueprint-pdf": "^1.1.4"
+    "blueprint-pdf": "^1.1.5"
   }
 }

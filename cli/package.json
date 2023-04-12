@@ -1,6 +1,6 @@
 {
   "type": "module",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "name": "@blueprint-pdf/cli",
   "description": "Terminal-based utility for the blueprint-pdf package.",
   "repository": "https://github.com/robbiesymonds/Blueprint.git",

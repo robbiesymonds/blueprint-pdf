@@ -1,4 +1,4 @@
-type BlueprintSchema<T = Record<string, any>> = (data: T | undefined) => Partial<{
+type BlueprintSchema<T = Record<string, any> | undefined> = (data: T) => Partial<{
   text: Array<BlueprintTextSchema | undefined | null>;
   images: Array<BlueprintImageSchema | undefined | null>;
   shapes: Array<BlueprintShapeSchema | undefined | null>;
